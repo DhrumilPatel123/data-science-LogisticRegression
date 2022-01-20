@@ -1,0 +1,23 @@
+---
+title: "Project"
+author: "Dhrumil"
+date: "18/10/2021"
+output: html_document
+---
+
+```{r}
+diabetic <- read.csv("diabetes.csv", header = TRUE, sep = ",")
+str(diabetic)
+
+```
+
+```{r}
+dia <- diabetic[,c("Outcome","Glucose","BloodPressure","Insulin")]
+print(head(dia))
+glm.fit <- glm(Outcome ~ Glucose + BloodPressure + Insulin , data = dia , family = binomial)
+summary(glm.fit)
+confint(glm.fit)
+```
+```{r}
+
+```
